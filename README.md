@@ -1,6 +1,6 @@
 # ConnectionVisualizer
 Christian Motta - cjm1594@rit.edu
-Hans Johnson -
+Hans Johnson - hcj4880@rit.edu
 Jon Massari -
 
 This tool will take a PCAP file exported to csv and display a chord diagram in HTML along with bar graphs showing top connections. 
