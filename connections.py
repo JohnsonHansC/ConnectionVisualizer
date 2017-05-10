@@ -1,5 +1,6 @@
 import socket
-
+import os
+from time import gmtime, strftime
 def getKey(item):
 	return item[1]
 
@@ -8,9 +9,13 @@ def getConnections():
 	src_list = []
 	dst_list = []
 	prot_list = []
-	print("Please enter file name, must be a pcap exported to CSV\n")
+	print("Please enter file name, must be a pcap\n")	
 	filename = input()
-	with open(filename) as f:
+	newfilename = strftime("%Y-%m-%d-%H:%M:%S", gmtime())+ ".csv"
+	command = "tshark -r " + filename + " -T fields -e ip.src -e ip.dst -e ip.proto -E separator=, >" + newfilename 
+	print(command)
+	os.system(command)
+	with open(newfilename) as f:
 		Dict = {}                                                                                               # create empty dictionary
 		content = []                                                                                    # create empty list
 		content = f.readlines()                                                                 # get every line of the file and add to a list
@@ -20,13 +25,13 @@ def getConnections():
 			test = 0
 			fields = []                                                                                     
 			fields = line.split(',')                                                        # split each line into a list   
-			i = 0                                                                                           
-			for item in fields:                                                                     #go through each item in the line list          
-				fields[i] = item[1:-1]                                                  # remove the first and last characters with are " and "
-				i = i + 1                                                                               
-			src_ip = fields[2]                                                                      # source ip is at index 2
-			dst_ip = fields[3]                                                                      # destination ip is at index 3
-			prot_name = fields[4]                                                           # protocol name is at index 4
+#			i = 0                                                                                           
+#			for item in fields:                                                                     #go through each item in the line list          
+#				fields[i] = item[1:-1]                                                  # remove the first and last characters with are " and "
+#				i = i + 1                                                                               
+			src_ip = fields[0]                                                                      # source ip is at index 2
+			dst_ip = fields[1]                                                                      # destination ip is at index 3
+			prot_name = fields[2]                                                           # protocol name is at index 4
 			
 			
 			#protocol = fields[4]                                                           # future work
