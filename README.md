@@ -3,7 +3,8 @@ Christian Motta - cjm1594@rit.edu
 Hans Johnson - hcj4880@rit.edu
 Jon Massari - jsm5786@rit.edu
 
-This tool will take a PCAP file exported to csv and display a chord diagram in HTML along with bar graphs showing top connections. 
+This tool will take a PCAP, generating a csv which is parsed to display a chord diagram in HTML along with bar graphs showing top connections. 
+CSV's are also labeled by system run time and placed in a history directory. Future plans are to be able to access historical data from the web interface.
 To export a PCAP file to CSV: File -> Export Packet Dissections -> as CSV... 
 Usage: Place all files in your website directory. Run the python script using python 3
   Linux – python3 connection.py 
