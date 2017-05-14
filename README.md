@@ -6,7 +6,7 @@ Jon Massari - jsm5786@rit.edu
 Prerequisites:
 	Python 3 is installed
 	A web service is installed. I.e. apache/IIS/etc.
-	Tcpdump is installed
+	Tshark is installed
 
 This tool will take a PCAP, generating a csv which is parsed to display a chord diagram in HTML along with bar graphs showing top connections. 
 
